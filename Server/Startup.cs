@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Linq;
+using BlazorSurveys.Server.Hubs;
 
 namespace BlazorSurveys.Server
 {
@@ -22,7 +23,7 @@ namespace BlazorSurveys.Server
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-
+	        services.AddSignalR();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
@@ -52,6 +53,7 @@ namespace BlazorSurveys.Server
             {
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
+                endpoints.MapHub<SurveyHub>("/surveyhub");
                 endpoints.MapFallbackToFile("index.html");
             });
         }
