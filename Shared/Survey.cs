@@ -5,7 +5,7 @@ using System.Collections.Generic;
 //ReSharper disable all
 namespace BlazorSurveys.Shared
 {
-	public record Survey
+	public record Survey : IExpirable
 	{
 		public Guid Id { get; init; } = Guid.NewGuid();
 		public string Title { get; init; }
@@ -20,5 +20,13 @@ namespace BlazorSurveys.Shared
 			Options = this.Options,
 			ExpiresAt = this.ExpiresAt
 		};
+	}
+
+	public record SurveyAnswer
+	{
+		public Guid Id { get; init; } = Guid.NewGuid();
+
+		public Guid SurveyId { get; init; }
+		public string Option { get; init; }
 	}
 }
