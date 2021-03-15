@@ -2,6 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
+//ReSharper disable all
 namespace BlazorSurveys.Server.Hubs
 {
 	public class SurveyHub : Hub<ISurveyHub>

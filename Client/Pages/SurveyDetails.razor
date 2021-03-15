@@ -5,6 +5,9 @@
 @inject HubConnection HubConnection
 @implements IAsyncDisposable
 
+@*ReSharper disable all*@
+
+
 @if (survey is null){
   <p><em>Loading...</em></p>
 } else {
@@ -60,7 +63,7 @@
         if (((IExpirable)survey).IsExpired) return;
 
         await SurveyHttpClient.AnswerSurvey(Id, new SurveyAnswer{
-          Option = option
+	        Option = option
         });
     }
 }

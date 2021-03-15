@@ -15,9 +15,9 @@ namespace BlazorSurveys.Shared
 
 		public SurveySummary ToSummary() => new SurveySummary
 		{
-			Id = this.Id,
-			Title = this.Title,
-			Options = this.Options,
+			Id = Id,
+			Title = Title,
+			Options = Options,
 			ExpiresAt = this.ExpiresAt
 		};
 	}
